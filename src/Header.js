@@ -1,12 +1,13 @@
 import React from "react";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header>
+      {/* {console.log(props)} */}
       <nav>
-        <logo className="logo">
+        <div className="logo">
           <img src="" alt="logo" />
-        </logo>
+        </div>
         <button className="mode__button">change mode</button>
       </nav>
       <h1 className="app-header__title">Weldy Medical Journal</h1>
@@ -26,6 +27,7 @@ const Header = () => {
             type="text"
             id="search"
             placeholder="search your journals by date or by description..."
+            value={props.searchText}
           />
         </div>
       </aside>
