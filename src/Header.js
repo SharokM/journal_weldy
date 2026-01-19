@@ -12,14 +12,16 @@ const Header = (props) => {
       </nav>
       <h1 className="app-header__title">Weldy Medical Journal</h1>
       <aside className="app-header__controls">
-        <button className="add-new">+ Add New Entry</button>
+        <button className="add-new" onClick={props.addJournal}>
+          + Add New Entry
+        </button>
         <div className="search-field">
           <img
             src="magnifying-glass-solid-full.svg"
             alt="search icon"
             className="search-icon"
           />
-          <label className="visually-hidden" for="search">
+          <label className="visually-hidden" htmlFor="search">
             Search Journals
           </label>
           <input
@@ -28,6 +30,7 @@ const Header = (props) => {
             id="search"
             placeholder="search your journals by date or by description..."
             value={props.searchText}
+            onChange={(e) => props.setSearchText(e.target.value)}
           />
         </div>
       </aside>

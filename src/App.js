@@ -5,37 +5,22 @@ import JournalList from "./JournalList.js";
 
 const App = () => {
   // JOURNAL BOX STATE
-  const [journals, setJournals] = useState([
-    {
-      id: 0,
-      title: "eat",
-      description: "reese peanut butter cups",
-      doesMatchSearch: true,
-    },
-    {
-      id: 1,
-      title: "sleep",
-      description: "eight hours",
-      doesMatchSearch: true,
-    },
-    {
-      id: 2,
-      title: "Learn medical codes",
-      description: "build an awesome ui to help",
-      doesMatchSearch: true,
-    },
-    {
-      id: 3,
-      title: "OR",
-      description: "Submit report",
-      doesMatchSearch: true,
-    },
-  ]);
-
+  const [journals, setJournals] = useState([]);
   // SEARCH BOX STATE
-  const [searchText, setSearchText] = useState("search");
+  const [searchText, setSearchText] = useState("");
   // API STATE
   const [api, setApi] = useState("");
+
+  const addJournal = () => {
+    const newJournal = {
+      id: Date.now(),
+      title: "",
+      description: "",
+      api: "",
+      doesMatchSearch: true,
+    };
+    setJournals((journals) => [newJournal, ...journals]);
+  };
 
   // use effect for API
   // useEffect(() => {
@@ -55,7 +40,11 @@ const App = () => {
 
   return (
     <div className="app">
-      <Header searchText={searchText} />
+      <Header
+        addJournal={addJournal}
+        searchText={searchText}
+        setSearchText={setSearchText}
+      />
       <JournalList journals={journals} />
     </div>
   );
