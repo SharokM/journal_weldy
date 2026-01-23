@@ -1,6 +1,18 @@
 import React from "react";
 
 const Journal = (props) => {
+  const updateTitle = (e) => {
+    const updatedValue = e.target.value;
+    const editMeId = props.journal.id;
+    props.onType(editMeId, "title", updatedValue);
+  };
+
+  const updateDescription = (e) => {
+    const updatedValue = e.target.value;
+    const editMeId = props.journal.id;
+    props.onType(editMeId, "description", updatedValue);
+  };
+
   return (
     <li className="journal">
       {/* {console.log(props.journal)} */}
@@ -11,6 +23,7 @@ const Journal = (props) => {
         aria-label="Title"
         placeholder="Entry Date"
         title={props.journal.title}
+        onChange={updateTitle}
       />
       {/*   DECRIPTION  */}
       <textarea
@@ -18,6 +31,7 @@ const Journal = (props) => {
         aria-label="Description"
         placeholder="entry..."
         description={props.journal.description}
+        onChange={updateDescription}
       />
       {/* API SECTION  */}
       <textarea
