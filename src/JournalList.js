@@ -6,7 +6,7 @@ const JournalList = (props) => {
   const searchMatches = props.journals.filter(keepSearchMatches);
 
   const renderJournal = (journal) => (
-    <Journal journal={journal} key={journal.id} />
+    <Journal onType={props.onType} journal={journal} key={journal.id} />
   );
   const journalElements = searchMatches.map(renderJournal);
   return <ul className="journal-list">{journalElements}</ul>;
@@ -14,4 +14,3 @@ const JournalList = (props) => {
 
 export default JournalList;
 
-// ADD E LISTENERS & HANDLERS

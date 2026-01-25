@@ -38,6 +38,22 @@ const App = () => {
   //   fetchData();
   // }, []);
 
+  const onType = (editMeId, updatedKey, updatedValue) => {
+    const updatedJournals = journals.map((journal) => {
+      if (journal.id !== editMeId) {
+        return journal;
+      } else if (updatedKey === "title") {
+        journal.title = updatedValue;
+        return journal;
+      } else {
+        journal.description = updatedValue;
+        return journal;
+      }
+    });
+    setJournals(updatedJournals);
+    // setJournal({ journals, ...updatedJournals });
+  };
+
   return (
     <div className="app">
       <Header
@@ -45,7 +61,7 @@ const App = () => {
         searchText={searchText}
         setSearchText={setSearchText}
       />
-      <JournalList journals={journals} />
+      <JournalList onType={onType} journals={journals} />
     </div>
   );
 };

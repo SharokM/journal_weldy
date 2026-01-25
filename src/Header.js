@@ -1,6 +1,10 @@
 import React from "react";
 
 const Header = (props) => {
+  const callSearch = (e) => {
+    props.onSearch(e.target.value);
+  };
+
   return (
     <header>
       {/* {console.log(props)} */}
@@ -31,6 +35,8 @@ const Header = (props) => {
             placeholder="search your journals by date or by description..."
             value={props.searchText}
             onChange={(e) => props.setSearchText(e.target.value)}
+            onChange={callSearch}
+            // change duplicate onChange 
           />
         </div>
       </aside>
