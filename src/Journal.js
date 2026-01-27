@@ -13,6 +13,10 @@ const Journal = (props) => {
     props.onType(editMeId, "description", updatedValue);
   };
 
+  const handleClick = () => {
+    props.deleteJournal(props.journal.id);
+  };
+
   return (
     <li className="journal">
       {/* {console.log(props.journal)} */}
@@ -22,7 +26,7 @@ const Journal = (props) => {
         type="text"
         aria-label="Title"
         placeholder="Entry Date"
-        title={props.journal.title}
+        value={props.journal.title}
         onChange={updateTitle}
       />
       {/*   DECRIPTION  */}
@@ -30,7 +34,7 @@ const Journal = (props) => {
         className="journal__description"
         aria-label="Description"
         placeholder="entry..."
-        description={props.journal.description}
+        value={props.journal.description}
         onChange={updateDescription}
       />
       {/* API SECTION  */}
@@ -41,7 +45,9 @@ const Journal = (props) => {
         description={props.journal.api}
       />
       {/* DELETE BUTTON  */}
-      <span className="journal__delete">X</span>
+      <span className="journal__delete" onClick={handleClick}>
+        X
+      </span>
     </li>
   );
 };

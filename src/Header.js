@@ -36,7 +36,6 @@ const Header = (props) => {
             value={props.searchText}
             onChange={(e) => props.setSearchText(e.target.value)}
             onChange={callSearch}
-            // change duplicate onChange 
           />
         </div>
       </aside>
