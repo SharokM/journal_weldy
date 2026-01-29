@@ -22,7 +22,7 @@ const Header = (props) => {
       {/* {console.log(props)} */}
       <nav>
         <div className="logo">
-          <img src="" alt="logo" />
+          <img src="https://cdn.vectorstock.com/i/250p/09/68/abstract-letter-hv-arrow-design-logo-vector-36500968.avif" alt="Weldy Logo" />
         </div>
         <button className="mode__button" onClick={handleMode}>
           change mode
