@@ -33,16 +33,17 @@ const Journal = (props) => {
       <textarea
         className="journal__description"
         aria-label="Description"
-        placeholder="entry..."
+        placeholder="write your entry..."
         value={props.journal.description}
         onChange={updateDescription}
       />
       {/* API SECTION  */}
+      <p className="api-description">New Study in Moodle:</p>
       <textarea
         className="api__section"
-        aria-label="API section"
         placeholder="API data goes in here..."
-        description={props.journal.api}
+        defaultValue={props.journal.api}
+        readOnly
       />
       {/* DELETE BUTTON  */}
       <span className="journal__delete" onClick={handleClick}>

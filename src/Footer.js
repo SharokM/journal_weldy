@@ -1,7 +1,9 @@
-const Footer = () => {
+import React from "react";
+
+export const Footer = () => {
   return (
     <footer>
-      <div class="footer__wrapper">
+      <div className="footer__wrapper">
         <h4>
           Powered by <span>clean</span> data & grit
         </h4>
@@ -9,5 +11,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;
