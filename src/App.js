@@ -13,35 +13,69 @@ const App = () => {
   // API STATE
   const [api, setApi] = useState("");
 
+  //  .............API
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const request = await fetch(
+          "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=38212345&retmode=json"
+        );
+        const result = await request.json();
+
+        const headline = result.result["38212345"].title;
+        setApi(headline);
+      } catch (error) {
+        console.log("There appears to be an error fetching data", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   //  .............add entry
 
-  const addJournal = () => {
+  // const addJournal = async () => {
+  //   const newJournal = {
+  //     id: Date.now(),
+  //     title: "",
+  //     description: "",
+  //     api: api,
+  //     doesMatchSearch: true,
+  //   };
+  //   setJournals((journals) => [newJournal, ...journals]);
+  // };
+
+  const addJournal = async () => {
+    // fetch multiple article IDs
+    const searchRequest = await fetch(
+      "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=medicine&retmax=20&retmode=json"
+    );
+    const searchResult = await searchRequest.json();
+    const ids = searchResult.esearchresult.idlist;
+
+    if (!ids.length) return;
+
+    const randomId = ids[Math.floor(Math.random() * ids.length)];
+
+    // fetch headline for this ID
+    const summaryRequest = await fetch(
+      `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=${randomId}&retmode=json`
+    );
+    const summaryResult = await summaryRequest.json();
+    const headline = summaryResult.result[randomId].title;
+
+    // create journal with headline
     const newJournal = {
       id: Date.now(),
       title: "",
       description: "",
-      api: "",
+      api: headline,
       doesMatchSearch: true,
     };
+
     setJournals((journals) => [newJournal, ...journals]);
   };
-
-  //  .............API
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //       try {
-  //         const request = await fetch("https://www.who.int/api/news/newsitems");
-  //         const result = await request.json()
-  //         setApi(result)
-  //  console.log(result)
-  //       } catch (error) {
-  //         console.log("There appears to be an error fetching data", error);
-  //         console.error("error is", error);
-  //       }
-  //   }
-  //   fetchData();
-  // }, []);
 
   //  .............search type func
 

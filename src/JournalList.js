@@ -18,4 +18,3 @@ const JournalList = (props) => {
 };
 
 export default JournalList;
-
