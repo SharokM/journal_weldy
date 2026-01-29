@@ -47,34 +47,46 @@ const App = () => {
   // };
 
   const addJournal = async () => {
-    // fetch multiple article IDs
-    const searchRequest = await fetch(
-      "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=medicine&retmax=20&retmode=json"
-    );
-    const searchResult = await searchRequest.json();
-    const ids = searchResult.esearchresult.idlist;
+    try {
+      const searchRequest = await fetch(
+        "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=medicine&retmax=20&retmode=json"
+      );
 
-    if (!ids.length) return;
+      if (!searchRequest.ok) {
+        throw new Error("Search request failed");
+      }
 
-    const randomId = ids[Math.floor(Math.random() * ids.length)];
+      const searchResult = await searchRequest.json();
+      const ids = searchResult.esearchresult.idlist;
 
-    // fetch headline for this ID
-    const summaryRequest = await fetch(
-      `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=${randomId}&retmode=json`
-    );
-    const summaryResult = await summaryRequest.json();
-    const headline = summaryResult.result[randomId].title;
+      if (!ids.length) return;
 
-    // create journal with headline
-    const newJournal = {
-      id: Date.now(),
-      title: "",
-      description: "",
-      api: headline,
-      doesMatchSearch: true,
-    };
+      const randomId = ids[Math.floor(Math.random() * ids.length)];
 
-    setJournals((journals) => [newJournal, ...journals]);
+      const summaryRequest = await fetch(
+        `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=${randomId}&retmode=json`
+      );
+
+      if (!summaryRequest.ok) {
+        throw new Error("Summary request failed");
+      }
+
+      const summaryResult = await summaryRequest.json();
+      const headline = summaryResult.result[randomId].title;
+
+      const newJournal = {
+        id: Date.now(),
+        title: "",
+        description: "",
+        api: headline,
+        doesMatchSearch: true,
+      };
+
+      setJournals((journals) => [newJournal, ...journals]);
+    } catch (error) {
+      console.error("API error:", error);
+      alert("Could not fetch article. Try again in a moment.");
+    }
   };
 
   //  .............search type func
@@ -99,14 +111,14 @@ const App = () => {
     const newSearchText = text.toLowerCase();
     const updatedJournals = journals.map((journal) => {
       if (!newSearchText) {
-        return { journal, doesMatchSearch: true };
+        return { ...journal, doesMatchSearch: true };
       } else {
         const title = (journal.title || "").toLowerCase();
         const description = (journal.description || "").toLowerCase();
         const titleMatch = title.includes(newSearchText);
         const descriptionMatch = description.includes(newSearchText);
         const hasMatch = titleMatch || descriptionMatch;
-        return { journal, doesMatchSearch: hasMatch };
+        return { ...journal, doesMatchSearch: hasMatch };
       }
     });
     setSearchText(newSearchText), setJournals(updatedJournals);

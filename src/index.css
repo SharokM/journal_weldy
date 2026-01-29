@@ -10,6 +10,16 @@ body {
   background-color: rgba(165, 42, 42, 0.674);
 }
 
+body.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+body.dark-mode .journal {
+  background-color: silver;
+  color: black;
+}
+
 .app {
   width: 1000px;
   margin: 50px auto;

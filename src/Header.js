@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Header = (props) => {
+  const [theme, setTheme] = useState(false);
+
+  function handleMode() {
+    setTheme(!theme);
+
+    if (!theme) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }
+
   const callSearch = (e) => {
     props.onSearch(e.target.value);
   };
@@ -12,7 +24,9 @@ const Header = (props) => {
         <div className="logo">
           <img src="" alt="logo" />
         </div>
-        <button className="mode__button">change mode</button>
+        <button className="mode__button" onClick={handleMode}>
+          change mode
+        </button>
       </nav>
       <h1 className="app-header__title">Weldy Medical Journal</h1>
       <aside className="app-header__controls">
