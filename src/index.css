@@ -194,6 +194,12 @@ textarea {
   font-size: 10px;
 }
 
+.api-link {
+  color: rgba(3, 3, 3, 0.44);
+  text-decoration: none;
+  font-size: 0.78rem;
+}
+
 .journal__delete {
   position: absolute;
   top: 0px;

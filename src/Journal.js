@@ -46,10 +46,12 @@ const Journal = (props) => {
         readOnly
       />
       <a 
+      className="api-link"
       href={props.journal.url}
       target="_blank"
       rel="noopener noreferrer"
       >View Full Study?</a>
+
       {/* DELETE BUTTON  */}
       <span className="journal__delete" onClick={handleClick}>
         X
