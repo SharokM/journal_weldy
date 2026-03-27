@@ -38,7 +38,7 @@ const Journal = (props) => {
         onChange={updateDescription}
       />
       {/* API SECTION  */}
-      <p className="api-description">New Study (available in Moodle):</p>
+      <p className="api-description">New Study:</p>
       <textarea
         className="api__section"
         placeholder="API data goes in here..."
