@@ -134,6 +134,15 @@ textarea {
   border: 2px solid rgb(0, 0, 0);
 }
 
+.app-description {
+  background-color: #f6f6f6;
+  padding: 10px 15px;
+  border-left: 4px solid #4caf50;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
 .journal {
   font-family: "Exo 2", sans-serif;
   width: 300px;

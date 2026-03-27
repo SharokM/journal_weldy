@@ -53,6 +53,12 @@ const Header = (props) => {
           />
         </div>
       </aside>
+      <div className="app-description">
+        <p>
+          Welcome to the Weldy Medical Journal! 📝 Use this app to create, edit, and search your journal entries.
+          Click “Add Journal” to fetch a new study headline. Click the link below each study to view the full article.
+        </p>
+      </div>
     </header>
   );
 };
