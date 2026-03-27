@@ -135,9 +135,8 @@ textarea {
 }
 
 .app-description {
-  background-color: #f6f6f6;
+  background-color: rgba(165, 42, 42, 0.674);
   padding: 10px 15px;
-  border-left: 4px solid #4caf50;
   margin-bottom: 10px;
   font-size: 0.9rem;
   color: #333;
