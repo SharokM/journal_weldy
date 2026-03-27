@@ -198,6 +198,9 @@ textarea {
   color: rgba(3, 3, 3, 0.44);
   text-decoration: none;
   font-size: 0.78rem;
+  margin-top: 2px;
+  cursor: pointer;
+  align-self: flex-start;
 }
 
 .journal__delete {

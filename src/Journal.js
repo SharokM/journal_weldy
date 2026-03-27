@@ -45,8 +45,7 @@ const Journal = (props) => {
         defaultValue={props.journal.api}
         readOnly
       />
-      <a 
-      className="api-link"
+      <a className="api-link"
       href={props.journal.url}
       target="_blank"
       rel="noopener noreferrer"
