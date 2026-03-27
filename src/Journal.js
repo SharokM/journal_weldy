@@ -25,7 +25,7 @@ const Journal = (props) => {
         className="journal__title"
         type="text"
         aria-label="Title"
-        placeholder="Entry Date"
+        placeholder="Entry Date/ Title"
         value={props.journal.title}
         onChange={updateTitle}
       />
