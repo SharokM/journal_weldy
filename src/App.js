@@ -79,6 +79,7 @@ const App = () => {
         title: "",
         description: "",
         api: headline,
+        url: `https://pubmed.ncbi.nlm.nih.gov/${randomId}/`, 
         doesMatchSearch: true,
       };
 
