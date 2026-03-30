@@ -19,7 +19,6 @@ const Journal = (props) => {
 
   return (
     <li className="journal">
-      {/* {console.log(props.journal)} */}
       {/* TITLE  */}
       <input
         className="journal__title"

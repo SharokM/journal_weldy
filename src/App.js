@@ -35,16 +35,6 @@ const App = () => {
 
   //  .............add entry
 
-  // const addJournal = async () => {
-  //   const newJournal = {
-  //     id: Date.now(),
-  //     title: "",
-  //     description: "",
-  //     api: api,
-  //     doesMatchSearch: true,
-  //   };
-  //   setJournals((journals) => [newJournal, ...journals]);
-  // };
 
   const addJournal = async () => {
     try {
@@ -103,7 +93,6 @@ const App = () => {
       }
     });
     setJournals(updatedJournals);
-    // setJournal({ journals, ...updatedJournals });
   };
 
   //  .............search bar
