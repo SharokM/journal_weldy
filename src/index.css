@@ -210,7 +210,7 @@ textarea {
 .api-link {
   color: rgba(3, 3, 3, 0.44);
   text-decoration: none;
-  font-size: 0.78rem;
+  font-size: 0.6rem;
   margin-top: 2px;
   cursor: pointer;
   align-self: flex-start;
@@ -363,6 +363,7 @@ span {
   }
 
   .api-link {
+    font-size: 0.6rem;
   }
 
   .journal__delete {
