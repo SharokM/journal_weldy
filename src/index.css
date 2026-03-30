@@ -209,8 +209,10 @@ textarea {
 
 .api-link {
   color: rgba(3, 3, 3, 0.44);
+  font-family: Lucida Sans, Lucida Sans Regular, Lucida Grande,
+    Lucida Sans Unicode, Geneva, Verdana, sans-serif;
   text-decoration: none;
-  font-size: 0.6rem;
+  font-size: 10px;
   margin-top: 2px;
   cursor: pointer;
   align-self: flex-start;
