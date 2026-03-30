@@ -121,7 +121,7 @@ textarea {
 
 .search {
   flex-grow: 1;
-  width: 100%;
+  width: 205px;
   padding: 8px;
   background-color: transparent;
   border: none;
@@ -304,6 +304,8 @@ span {
   }
 
   .journal-list {
+    padding: none;
+    gap: 20px;
   }
 
   .app-header__title {
@@ -401,6 +403,10 @@ span {
       margin: 50px auto;
     }
 
+    nav {
+      align-items: flex-start;
+    }
+
     .journal {
       width: 300px;
       height: 325px;
@@ -424,6 +430,15 @@ span {
 
     .journal-list {
       gap: 12px;
+    }
+
+    .app-header__controls {
+      align-items: center;
+      display: flex;
+      margin: 10px 0 0 10px;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 5%;
     }
   }
 }
