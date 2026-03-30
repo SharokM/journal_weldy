@@ -250,7 +250,6 @@ span {
   font-weight: bold;
 }
 
-/* added */
 .visually-hidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -278,27 +277,6 @@ span {
     margin: 50px auto;
   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
-  }
-
-  h4 {
-  }
-
-  nav {
-  }
-
-  .logo {
-  }
-
-  .logo img {
-  }
-
-  .mode__button {
-  }
-
   input,
   textarea {
     outline: none;
@@ -310,76 +288,18 @@ span {
     gap: 20px;
   }
 
-  .app-header__title {
-  }
-
-  .app-header__controls {
-  }
-
-  .search-field {
-  }
-
-  .search-icon {
-  }
-
-  .search,
-  .add-new {
-  }
-
   .search {
     width: 525px;
     font-size: 16px;
     padding: 10px;
   }
 
-  .add-new {
-  }
-
-  .app-description {
-  }
-
   .journal {
     width: 47%;
   }
 
-  /* .journal label, */
-  .journal__title,
-  .journal__description {
-  }
-
-  .journal__title {
-  }
-
-  .journal__description {
-  }
-
-  .api__section {
-  }
-
-  .api__title,
-  .api__description {
-  }
-
-  .api__title {
-  }
-
-  .api__description {
-  }
-
   .api-link {
     font-size: 0.6rem;
-  }
-
-  .journal__delete {
-  }
-
-  .journal__delete:hover {
-  }
-
-  footer {
-  }
-
-  footer span {
   }
 
   span {
