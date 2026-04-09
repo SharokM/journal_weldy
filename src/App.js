@@ -125,6 +125,22 @@ const App = () => {
 
   useEffect(() => {
     try {
+      const stateString = localStorage.getItem("savedData");
+      if (stateString) {
+        const savedData = JSON.parse(stateString);
+        if (savedData.journals) setJournals(savedData.journals || []);
+        if (savedData.searchText) setSearchText(savedData.searchText);
+        if (savedData.api) setApi(savedData.api || "");
+      }
+    } catch (error) {
+      console.log("uh oh! theres an error", error);
+      console.error("error is", error);
+    }
+  }, []);
+
+
+  useEffect(() => {
+    try {
       localStorage.setItem(
         "savedData",
         JSON.stringify({ journals, searchText, api })
@@ -134,21 +150,6 @@ const App = () => {
       console.error("error is", error);
     }
   }, [journals, searchText, api]);
-
-  useEffect(() => {
-    try {
-      const stateString = localStorage.getItem("savedData");
-      if (stateString) {
-        const savedData = JSON.parse(stateString);
-        setJournals(savedData.journals || []);
-        setSearchText(savedData.searchText || "");
-        setApi(savedData.api || "");
-      }
-    } catch (error) {
-      console.log("uh oh! theres an error", error);
-      console.error("error is", error);
-    }
-  }, []);
 
   return (
     <div className="app">
